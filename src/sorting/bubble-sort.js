@@ -2,17 +2,20 @@ const swap = require('./swap');
 
 const bubbleSort = (arr) => {
     if (Array.isArray(arr)) {
-        let isSorted = false;
-        let lastUnsorted = arr.length - 1
-        while(!isSorted) {
-            isSorted = true;
-            for (let i = 0; i < lastUnsorted; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    swap(arr, i, i + 1);
-                    isSorted = false;
+        if (arr.length > 0) {
+            let isSorted = false;
+            let lastUnsorted = arr.length - 1
+            while(!isSorted) {
+                isSorted = true;
+                for (let i = 0; i < lastUnsorted; i++) {
+                    if (arr[i] > arr[i + 1]) {
+                        swap(arr, i, i + 1);
+                        isSorted = false;
+                    }
                 }
+                lastUnsorted--;
             }
-            lastUnsorted--;
+            return arr;
         }
         return arr;
     }
